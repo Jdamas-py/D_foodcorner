@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            display: inline-block;
+            text-align: left;
+        }
+        label, input {
+            display: block;
+            margin: 10px 0;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            // Get user input
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Store user credentials in localStorage
+            localStorage.setItem("userEmail", email);
+            localStorage.setItem("userPassword", password);
+
+            // Show success message and redirect to home page
+            alert("Sign up successful! You can now log in.");
+            window.location.href = "HOME.html"; // Redirect to home page
+        });
+    </script>
+</body>
+</html>

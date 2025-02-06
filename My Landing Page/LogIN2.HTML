@@ -28,7 +28,7 @@
             padding: 10px 20px;
             font-size: 16px;
             color: #fff;
-            background-color: #007bff;
+            background-color: #28a745;
             border: none;
             cursor: pointer;
             border-radius: 5px;
@@ -51,24 +51,28 @@
     </div>
 
     <script>
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent form submission
-            
-            // Get user input
-            const enteredEmail = document.getElementById("loginEmail").value;
-            const enteredPassword = document.getElementById("loginPassword").value;
+        // Ensure the DOM is loaded before adding event listeners
+        document.addEventListener("DOMContentLoaded", function() {
+            // Listen for form submission
+            document.getElementById("loginForm").addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent form submission
+                
+                // Get user input
+                const enteredEmail = document.getElementById("loginEmail").value;
+                const enteredPassword = document.getElementById("loginPassword").value;
 
-            // Get stored credentials from localStorage
-            const storedEmail = localStorage.getItem("userEmail");
-            const storedPassword = localStorage.getItem("userPassword");
+                // Get stored credentials from localStorage
+                const storedEmail = localStorage.getItem("userEmail");
+                const storedPassword = localStorage.getItem("userPassword");
 
-            // Check if credentials match
-            if (enteredEmail === storedEmail && enteredPassword === storedPassword) {
-                alert("Login successful! Welcome back.");
-                window.location.href = "main.html"; // Redirect to main page after successful login
-            } else {
-                alert("Invalid credentials. Please try again.");
-            }
+                // Check if credentials match
+                if (enteredEmail === storedEmail && enteredPassword === storedPassword) {
+                    alert("Login successful! Redirecting to home page...");
+                    window.location.href = "index.html"; 
+                } else {
+                    alert("Invalid credentials. Please try again.");
+                }
+            });
         });
     </script>
 </body>
